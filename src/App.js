@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import './App.scss';
 
 const App = () => {
+  const [cardNumber, setCardNumber] = useState("");
+
   function onCardNumberChange(val) {
-    console.log(val);
+    setCardNumber(val);
   }
 
   return (
@@ -26,6 +29,7 @@ const App = () => {
           autoComplete="cc-number"
           onChange={(e) => onCardNumberChange(e.target.value)}
         />
+        {cardNumber && <div className="tip">{cardNumber} is a valid card number</div>}
       </div>
       <div>
         <label htmlFor="cc-exp-month">Expiration Month</label>
