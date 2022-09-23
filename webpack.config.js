@@ -9,9 +9,6 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveAppPath = (relativePath) =>
   path.resolve(appDirectory, relativePath);
 
-// Host
-const host = process.env.HOST || "localhost";
-
 module.exports = {
   mode: "development",
 

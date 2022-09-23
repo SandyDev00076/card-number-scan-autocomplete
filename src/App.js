@@ -1,48 +1,53 @@
 import React from "react";
 
 const App = () => {
+  function onCardNumberChange(val) {
+    console.log(val);
+  }
+
   return (
     <form>
       <div>
-        <label for="nameoncard">Name on Card</label>
+        <label htmlFor="nameoncard">Name on Card</label>
         <input
           type="text"
           id="nameoncard"
           name="nameoncard"
-          autocomplete="cc-name"
+          autoComplete="cc-name"
         />
       </div>
 
       <div>
-        <label for="ccnumber">Credit Card Number</label>
+        <label htmlFor="ccnumber">Credit Card Number</label>
         <input
           type="text"
           id="ccnumber"
           name="ccnumber"
-          autocomplete="cc-number"
+          autoComplete="cc-number"
+          onChange={(e) => onCardNumberChange(e.target.value)}
         />
       </div>
       <div>
-        <label for="cc-exp-month">Expiration Month</label>
+        <label htmlFor="cc-exp-month">Expiration Month</label>
         <input
           type="number"
           id="cc-exp-month"
           name="cc-exp-month"
-          autocomplete="cc-exp-month"
+          autoComplete="cc-exp-month"
         />
       </div>
       <div>
-        <label for="cc-exp-year">Expiration Year</label>
+        <label htmlFor="cc-exp-year">Expiration Year</label>
         <input
           type="number"
           id="cc-exp-year"
           name="cc-exp-year"
-          autocomplete="cc-exp-year"
+          autoComplete="cc-exp-year"
         />
       </div>
       <div>
-        <label for="cvv2">CVV</label>
-        <input type="text" id="cvv2" name="cvv2" autocomplete="cc-csc" />
+        <label htmlFor="cvv2">CVV</label>
+        <input type="text" id="cvv2" name="cvv2" autoComplete="cc-csc" />
       </div>
       <button>SUBMIT</button>
     </form>
