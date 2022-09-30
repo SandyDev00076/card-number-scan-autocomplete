@@ -29,7 +29,7 @@ const OTPWithAutoReadPlain = forwardRef(
       if (!ref || !ref.current) return;
 
       alert("Listening for OTP");
-      console.log(ref);
+      console.log(ref.current);
 
       // functionality to auto-read the OTP from browser
       detectOTPFunctionality(
@@ -44,7 +44,7 @@ const OTPWithAutoReadPlain = forwardRef(
       );
     }, []);
 
-    return <input className={inputClassName} ref={ref} {...inputProps} autocomplete="one-time-code" required />;
+    return <input className={inputClassName} ref={ref} {...inputProps} autoComplete="one-time-code" required />;
   }
 );
 
