@@ -6,7 +6,7 @@
  * @param {number} duration Duration till which we want to listen for OTP (in seconds)
  * @returns An abort controller which you can abort if you want to stop listening for OTP
  */
-export function detectOTPFunctionality(
+export async function detectOTPFunctionality(
   onOTPReceiveSuccess,
   onOTPReceiveFail,
   duration,
@@ -40,7 +40,7 @@ export function detectOTPFunctionality(
       ac.abort();
       onOTPReceiveFail(err);
     }
-    
+
     return ac;
   }
 }
