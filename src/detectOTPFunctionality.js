@@ -14,6 +14,7 @@ export function detectOTPFunctionality(
 ) {
   // if OTP is supported
   if ("OTPCredential" in window) {
+    alert("OTP is supported");
     // a variable for abort controller which will be returned
     const ac = new AbortController();
 
