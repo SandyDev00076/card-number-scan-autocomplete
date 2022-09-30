@@ -32,7 +32,7 @@ export function detectOTPFunctionality(
           otp: { transport: ["sms"] },
           signal: ac.signal,
         });
-        onOTPReceiveSuccess(otp);
+        onOTPReceiveSuccess(otp.code);
         ac.abort();
       } catch (err) {
         ac.abort();

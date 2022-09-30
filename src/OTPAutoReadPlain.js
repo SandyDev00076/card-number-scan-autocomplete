@@ -41,9 +41,9 @@ const OTPWithAutoReadPlain = ({
   return (
     <input
       className={inputClassName}
-      {...inputProps}
       autoComplete="one-time-code"
       required
+      {...inputProps}
     />
   );
 };
