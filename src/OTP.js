@@ -3,7 +3,6 @@ import OTPWithAutoReadPlain from "./OTPAutoReadPlain";
 import './OTP.scss';
 
 const OTPComp = () => {
-  const otpRef = useRef(null);
   const [otp, setOtp] = useState("");
   const [error, setError] = useState(false);
 
@@ -14,10 +13,9 @@ const OTPComp = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>v7</h1>
+      <h1>v8</h1>
       <OTPWithAutoReadPlain
         placeholder="Enter OTP"
-        ref={otpRef}
         value={otp}
         className="otp-input"
         onChange={(e) => setOtp(e.target.value)}

@@ -7,7 +7,6 @@
  * @returns An abort controller which you can abort if you want to stop listening for OTP
  */
 export function detectOTPFunctionality(
-  inputElement,
   onOTPReceiveSuccess,
   onOTPReceiveFail,
   duration,
@@ -28,15 +27,15 @@ export function detectOTPFunctionality(
 
     // when DOM has loaded
     window.addEventListener("DOMContentLoaded", async (e) => {
-      if (!inputElement) return;
       try {
         const otp = await navigator.credentials.get({
           otp: { transport: ["sms"] },
           signal: ac.signal,
         });
-        inputElement.value = otp.code;
         onOTPReceiveSuccess(otp);
+        ac.abort();
       } catch (err) {
+        ac.abort();
         onOTPReceiveFail(err);
       }
     });

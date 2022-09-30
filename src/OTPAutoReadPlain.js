@@ -8,44 +8,44 @@
  * @returns An jsx element consisting of input OTP field with auto-read functionality with plain input element
  */
 
-import React, { useEffect, forwardRef } from "react";
+import React, { useEffect } from "react";
 import clsx from "clsx";
 import { detectOTPFunctionality } from "./detectOTPFunctionality";
 
-const OTPWithAutoReadPlain = forwardRef(
-  (
-    {
-      otpAutoReadSuccess,
-      otpAutoReadFailure,
+const OTPWithAutoReadPlain = ({
+  otpAutoReadSuccess,
+  otpAutoReadFailure,
+  otpDetectionInterval,
+  otpAutoReadTimeout,
+  ...inputProps
+}) => {
+  const inputClassName = clsx("od-text-field medium", inputProps.className);
+
+  useEffect(() => {
+    // functionality to auto-read the OTP from browser
+    detectOTPFunctionality(
+      (otp) => {
+        // prop based function
+        otpAutoReadSuccess && otpAutoReadSuccess(otp);
+      },
+      (err) => {
+        otpAutoReadFailure && otpAutoReadFailure(err);
+      },
       otpDetectionInterval,
-      otpAutoReadTimeout,
-      ...inputProps
-    },
-    ref
-  ) => {
-    const inputClassName = clsx("od-text-field medium", inputProps.className);
+      () => {
+        otpAutoReadTimeout && otpAutoReadTimeout();
+      }
+    );
+  }, []);
 
-    useEffect(() => {
-      if (!ref || !ref.current) return;
-
-      alert("Listening for OTP");
-      console.log(ref.current);
-
-      // functionality to auto-read the OTP from browser
-      detectOTPFunctionality(
-        ref.current,
-        (otp) => {
-          // prop based function
-          otpAutoReadSuccess && otpAutoReadSuccess(otp);
-        },
-        (err) => {
-          otpAutoReadFailure && otpAutoReadFailure(err);
-        }
-      );
-    }, []);
-
-    return <input className={inputClassName} ref={ref} {...inputProps} autoComplete="one-time-code" required />;
-  }
-);
+  return (
+    <input
+      className={inputClassName}
+      {...inputProps}
+      autoComplete="one-time-code"
+      required
+    />
+  );
+};
 
 export default OTPWithAutoReadPlain;
