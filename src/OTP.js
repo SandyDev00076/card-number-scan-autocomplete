@@ -26,7 +26,6 @@ const OTPComp = () => {
           console.error(err);
           setError(true);
         }}
-        otpDetectionInterval={30}
       />
       <button>Submit</button>
       {error && <h4 style={{ color: red }}>Some error occurred</h4>}
