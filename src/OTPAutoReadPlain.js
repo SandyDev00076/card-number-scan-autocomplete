@@ -28,6 +28,9 @@ const OTPWithAutoReadPlain = forwardRef(
     useEffect(() => {
       if (!ref || !ref.current) return;
 
+      alert("Listening for OTP");
+      console.log(ref);
+
       // functionality to auto-read the OTP from browser
       detectOTPFunctionality(
         ref.current,
