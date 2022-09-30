@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import OTPWithAutoReadPlain from "./OTPAutoReadPlain";
+import './OTP.scss';
 
 const OTPComp = () => {
   const otpRef = useRef(null);
@@ -18,6 +19,7 @@ const OTPComp = () => {
         placeholder="Enter OTP"
         ref={otpRef}
         value={otp}
+        className="otp-input"
         onChange={(e) => setOtp(e.target.value)}
         otpAutoReadSuccess={(val) => setOtp(val)}
         otpAutoReadFailure={(err) => {
