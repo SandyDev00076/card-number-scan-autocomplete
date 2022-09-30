@@ -14,7 +14,6 @@ export async function detectOTPFunctionality(
 ) {
   // if OTP is supported
   if ("OTPCredential" in window) {
-    alert("OTP is supported");
     // a variable for abort controller which will be returned
     const ac = new AbortController();
 
@@ -29,15 +28,12 @@ export async function detectOTPFunctionality(
     // when DOM has loaded
     
     try {
-      alert("Trying to get OTP");
       const otp = await navigator.credentials.get({
         otp: { transport: ["sms"] },
         signal: ac.signal,
       });
       onOTPReceiveSuccess(otp.code);
-      ac.abort();
     } catch (err) {
-      ac.abort();
       onOTPReceiveFail(err);
     }
 
