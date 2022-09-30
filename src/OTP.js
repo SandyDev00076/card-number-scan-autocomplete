@@ -14,7 +14,7 @@ const OTPComp = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>v3</h1>
+      <h1>v4</h1>
       <OTPWithAutoReadPlain
         placeholder="Enter OTP"
         ref={otpRef}
