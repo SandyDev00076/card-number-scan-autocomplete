@@ -26,9 +26,11 @@ const OTPWithAutoReadPlain = ({
     detectOTPFunctionality(
       (otp) => {
         // prop based function
+        alert("success callback called")
         otpAutoReadSuccess && otpAutoReadSuccess(otp);
       },
       (err) => {
+        alert("error callback called")
         otpAutoReadFailure && otpAutoReadFailure(err);
       },
       otpDetectionInterval,

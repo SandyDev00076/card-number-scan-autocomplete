@@ -27,20 +27,20 @@ export function detectOTPFunctionality(
     }
 
     // when DOM has loaded
-    window.addEventListener("DOMContentLoaded", async (e) => {
-      try {
-        alert("Trying to get OTP");
-        const otp = await navigator.credentials.get({
-          otp: { transport: ["sms"] },
-          signal: ac.signal,
-        });
-        onOTPReceiveSuccess(otp.code);
-        ac.abort();
-      } catch (err) {
-        ac.abort();
-        onOTPReceiveFail(err);
-      }
-    });
+    
+    try {
+      alert("Trying to get OTP");
+      const otp = await navigator.credentials.get({
+        otp: { transport: ["sms"] },
+        signal: ac.signal,
+      });
+      onOTPReceiveSuccess(otp.code);
+      ac.abort();
+    } catch (err) {
+      ac.abort();
+      onOTPReceiveFail(err);
+    }
+    
     return ac;
   }
 }
