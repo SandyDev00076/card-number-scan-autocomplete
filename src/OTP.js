@@ -13,7 +13,7 @@ const OTPComp = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>v14</h1>
+      <h1>v15</h1>
       <OTPWithAutoReadPlain
         placeholder="Enter OTP"
         value={otp}
@@ -26,7 +26,7 @@ const OTPComp = () => {
         }}
       />
       <button>Submit</button>
-      {error && <h4 style={{ color: red }}>Some error occurred</h4>}
+      {error && <h4 style={{ color: "red" }}>Some error occurred</h4>}
     </form>
   );
 };
