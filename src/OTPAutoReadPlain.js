@@ -44,7 +44,7 @@ const OTPWithAutoReadPlain = forwardRef(
       );
     }, []);
 
-    return <input className={inputClassName} ref={ref} {...inputProps} />;
+    return <input autocomplete="one-time-code" className={inputClassName} ref={ref} {...inputProps} />;
   }
 );
 
