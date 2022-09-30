@@ -9,7 +9,7 @@
  */
 
 import React, { useEffect, forwardRef } from "react";
-import clsx from 'clsx';
+import clsx from "clsx";
 import { detectOTPFunctionality } from "./detectOTPFunctionality";
 
 const OTPWithAutoReadPlain = forwardRef(
@@ -40,11 +40,6 @@ const OTPWithAutoReadPlain = forwardRef(
         },
         (err) => {
           otpAutoReadFailure && otpAutoReadFailure(err);
-        },
-        otpDetectionInterval,
-        () => {
-          // nothing to be executed after timer ends
-          otpAutoReadTimeout && otpAutoReadTimeout();
         }
       );
     }, []);
